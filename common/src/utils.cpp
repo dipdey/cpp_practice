@@ -14,7 +14,7 @@ std::string decorate(const std::string& text) {
     return "[[" + text + "]]";
 }
 #ifdef _WIN32
-std::vector<std::string> list_dlls(const std::string& path) {
+std::vector<std::string> list_libraries(const std::string& path) {
     std::vector<std::string> files;
     std::string search = path + "\\*.dll";
     WIN32_FIND_DATAA fd;
@@ -28,7 +28,7 @@ std::vector<std::string> list_dlls(const std::string& path) {
     return files;
 }
 #else
-std::vector<std::string> list_sos(const std::string& path) {
+std::vector<std::string> list_libraries(const std::string& path) {
     std::vector<std::string> files;
     DIR* dir = opendir(path.c_str());
     if (!dir) return files;

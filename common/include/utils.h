@@ -11,5 +11,5 @@ inline int clamp(int v, int lo, int hi) {
 
 std::string decorate(const std::string& text);
 
-std::vector<std::string> list_dlls(const std::string& path);
+std::vector<std::string> list_libraries(const std::string& path);
 }

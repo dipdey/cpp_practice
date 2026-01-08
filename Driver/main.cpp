@@ -56,7 +56,7 @@ void load_plugins(std::vector<LoadedPlugin> &plugins)
 
     std::string plugin_dir = pluginPath; //"./plugins"; // path to your built plugins
 
-    std::vector<std::string> files = common::list_dlls(plugin_dir);
+    std::vector<std::string> files = common::list_libraries(plugin_dir);
 
     for (const auto &path : files)
     {

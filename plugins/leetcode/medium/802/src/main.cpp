@@ -19,7 +19,7 @@ PLUGIN_API PluginInfo* plugin_info() {
 
 PLUGIN_API void plugin_do_test(void) {
     int value = 19;
-    printf("[%d], [%s], ans = [%d]\n", info.id, info.name, common::clamp(value + 1, 0, 100));
+    printf("[%s], [%s], ans = [%d]\n", info.id, info.name, common::clamp(value + 1, 0, 100));
 }
 
 }
