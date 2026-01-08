@@ -24,18 +24,17 @@ int main()
         int id = -1;
         cout << "Avail Tests :: " << endl;
         // Use plugins
-        for (auto &p : plugins) {
-            std::cout << p.info->id << ". [" << p.info->name << "]" << endl;
+        for (int i = 0; i<plugins.size(); ++i) {
+            auto &p = plugins[i];
+            std::cout << i << ". " << p.info->id << ". [" << p.info->name << "]" << endl;
         }
         cout << "Enter your choise :: " << endl;
         cin >> id;
         bool correct = false;
-        for (auto &p : plugins) {
-            if (p.info->id == id) {
-                p.doTest();
-                correct = true;
-                break;
-            }
+        if (id < plugins.size()) {
+            auto &p = plugins[id];
+            p.doTest();
+            correct = true;
         }
         if (!correct) {
             cout << "Invalid choice " << id << endl;

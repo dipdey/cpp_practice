@@ -3,7 +3,7 @@
 #include "utils.h"
 
 static PluginInfo info {
-    841,
+    "841",
     "Keys and Rooms",
     PLUGIN_API_VERSION
 };

@@ -16,7 +16,7 @@ extern "C" {
 static const int PLUGIN_API_VERSION = 1;
 
 struct PluginInfo {
-    int id;
+    char id[1025];
     const char* name;
     int api_version;
 };

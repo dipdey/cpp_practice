@@ -6,7 +6,7 @@
 #include "utils.h"
 
 static PluginInfo info {
-    802,
+    "802",
     "Find Eventual Safe States",
     PLUGIN_API_VERSION
 };
