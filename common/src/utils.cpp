@@ -16,6 +16,29 @@ std::string decorate(const std::string& text) {
     return "[[" + text + "]]";
 }
 
+std::vector<int> convertToVector(const std::string& str) {
+    vector<int> ret;
+    if (str.empty()) return ret;
+    string tmp = "";
+    for (int i =0; i<str.length(); ++i) {
+        char ch = str.at(i);
+        if (ch >= '0' && ch <= '9') {
+            tmp += ch;
+        } else {
+            if (ch == ',' || ch == ']') {
+                if (!tmp.empty()) {
+                    stringstream ss(tmp);
+                    int n;
+                    ss >> n;
+                    ret.push_back(n);
+                    tmp = "";
+                }
+            }
+        }
+    }
+    return ret;
+}
+
 std::vector<std::vector<int> > convert(const std::string& str) {
     vector<vector<int>> ret;
     if (str.empty()) return ret;

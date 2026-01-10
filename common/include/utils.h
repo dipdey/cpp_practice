@@ -13,4 +13,5 @@ std::string decorate(const std::string& text);
 
 std::vector<std::string> list_libraries(const std::string& path);
 std::vector<std::vector<int> > convert(const std::string& str);
+std::vector<int> convertToVector(const std::string& str);
 }
