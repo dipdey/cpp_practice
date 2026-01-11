@@ -16,6 +16,57 @@ std::string decorate(const std::string& text) {
     return "[[" + text + "]]";
 }
 
+std::vector<std::vector<double> > convertDouble(const std::string& str) {
+    vector<vector<double>> ret;
+    if (str.empty()) return ret;
+    string tmp = "";
+    vector<double> ent;
+    for (int i =0; i<str.length()-1; ++i) {
+        char ch = str.at(i);
+        if (ch >= '0' && ch <= '9' || ch == '.') {
+            tmp += ch;
+        } else {
+            if (ch == ',' || ch == ']') {
+                if (!tmp.empty()) {
+                    stringstream ss(tmp);
+                    double n;
+                    ss >> n;
+                    ent.push_back(n);
+                    tmp = "";
+                }
+            }
+            if (ch == ']') {
+                ret.push_back(ent);
+                ent.clear();
+            }
+        }
+    }
+    return ret;
+}
+
+std::vector<double> convertToDoubleVector(const std::string& str) {
+    vector<double> ret;
+    if (str.empty()) return ret;
+    string tmp = "";
+    for (int i =0; i<str.length(); ++i) {
+        char ch = str.at(i);
+        if (ch >= '0' && ch <= '9' || ch == '.') {
+            tmp += ch;
+        } else {
+            if (ch == ',' || ch == ']') {
+                if (!tmp.empty()) {
+                    stringstream ss(tmp);
+                    double n;
+                    ss >> n;
+                    ret.push_back(n);
+                    tmp = "";
+                }
+            }
+        }
+    }
+    return ret;
+}
+
 std::vector<int> convertToVector(const std::string& str) {
     vector<int> ret;
     if (str.empty()) return ret;
